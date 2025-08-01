@@ -3,10 +3,26 @@ name = "pubmed-scout"
 version = "0.1.0"
 description = "Fetch PubMed papers with biotech/pharma affiliations and export them to CSV"
 authors = [
-    {name = "Shruti-lab",email = "124026034+Shruti-lab@users.noreply.github.com"}
+    {name = "Shruti-lab"}
 ]
 license = { text = "MIT" }
-readme = "README.md"
+readme = "README.rst"
+homepage = "https://github.com/Shruti-lab/pubmed-scout"
+repository = "https://github.com/Shruti-lab/pubmed-scout"
+documentation = "https://github.com/Shruti-lab/pubmed-scout/blob/main/README.rst"
+keywords = ["pubmed", "biotech", "pharma", "research", "csv", "api"]
+
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+
 requires-python = ">=3.13"
 dependencies = [
     "typer (>=0.16.0,<0.17.0)",
@@ -23,6 +39,18 @@ pytest-cov = "^6.2.1"
 
 [project.scripts]
 get-papers-list = "pubmed_scout.cli:main"
+
+[tool.coverage.run]
+source = ["src"]
+omit = ["*/tests/*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]

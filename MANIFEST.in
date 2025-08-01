@@ -1,0 +1,12 @@
+include README.md
+include README.rst
+include LICENSE
+include pyproject.toml
+recursive-include src/pubmed_scout *.py
+recursive-exclude * __pycache__
+recursive-exclude * *.py[co]
+exclude .gitignore
+exclude poetry.lock
+prune tests
+prune logs
+prune pubmed_scout_output

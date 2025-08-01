@@ -97,7 +97,7 @@ def get_papers(query: str,
     except Exception as e:
         logger.error(f"Unexpected error during execution: {e}")
         typer.echo(f"An unexpected error occurred: {e}")
-        raise typer.Exit(1)
+        sys.exit(1)
 
 def main():
     """
