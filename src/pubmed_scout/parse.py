@@ -7,10 +7,10 @@ import re
 logger = logging.getLogger(__name__)
 
 
-# ACADEMIC_KEYWORDS = [
-#     "university", "college", "hospital", "institute", "faculty", "school",
-#     "center", "centre", "department", "clinic","clínic","med school"
-# ]
+ACADEMIC_KEYWORDS = [
+    "university", "college", "hospital", "institute", "faculty", "school",
+    "center", "centre", "department", "clinic","clínic","med school"
+]
 
 
 # def is_non_academic(affiliation: str) -> bool:
@@ -37,7 +37,7 @@ def is_company_affiliation(affiliation: str) -> bool:
     if not affiliation:
         return False
 
-    return any(keyword in affiliation.lower() for keyword in COMPANY_KEYWORDS)
+    return any(keyword in affiliation.lower() for keyword in COMPANY_KEYWORDS) and not any(keyword in affiliation.lower() for keyword in ACADEMIC_KEYWORDS)
 
 
 def parse_publication_date(pub_date_element: Optional[ET.Element]) -> str:
