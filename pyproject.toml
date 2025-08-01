@@ -1,0 +1,29 @@
+[project]
+name = "pubmed-scout"
+version = "0.1.0"
+description = "Fetch PubMed papers with biotech/pharma affiliations and export them to CSV"
+authors = [
+    {name = "Shruti-lab",email = "124026034+Shruti-lab@users.noreply.github.com"}
+]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "typer (>=0.16.0,<0.17.0)",
+    "requests (>=2.32.4,<3.0.0)",
+]
+
+[tool.poetry]
+packages = [{include = "pubmed_scout", from = "src"}]
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+pytest-cov = "^6.2.1"
+
+[project.scripts]
+get-papers-list = "pubmed_scout.cli:main"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
